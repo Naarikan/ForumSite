@@ -1,0 +1,14 @@
+﻿@model string
+
+@if (string.IsNullOrEmpty(Model))
+{
+    <li class="nav-item">
+        <a class="nav-link" href="/Login/Login">Giriş Yap</a>
+    </li>
+}
+else
+{
+    <li class="nav-item">
+        <a class="nav-link" href="/Profile/MyProfile">Üye:@Model</a>
+    </li>
+}

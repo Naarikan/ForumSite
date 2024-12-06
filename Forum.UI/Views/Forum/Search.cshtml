@@ -1,0 +1,56 @@
+﻿@model IQueryable<Forum.Entities.Models.Question>
+@{
+    ViewData["Title"] = "Search Results";
+    Layout = "~/Views/Shared/_ForumLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Search Results</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <h2>Arama Sonuçları</h2>
+
+       @*  <form method="get" action="/Forum/Search">
+            <div class="form-group">
+                <input type="text" name="searchTerm" class="form-control" placeholder="Arama..." value="@ViewData["searchTerm"]" />
+            </div>
+            <button type="submit" class="btn btn-primary">Ara</button>
+        </form> *@
+
+        <table class="table table-striped mt-4">
+            <thead>
+                <tr>
+                    <th>Başlık</th>
+                    <th>İçerik</th>
+                    <th>Kategori</th>
+                    <th>Oluşturulma Tarihi</th>
+                    <th>Oluşturan</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var question in Model)
+                {
+                    <tr>
+                        <td><a href="/Forum/QuestionAnswers/@question.ID">@question.Title</a></td>
+                        <td>@question.Content</td>
+                        <td>@question.Category.CategoryName</td>
+                        <td>@question.CreatedDate</td>
+                        <td>@question.AppUser.UserName</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+
+
+
+
+

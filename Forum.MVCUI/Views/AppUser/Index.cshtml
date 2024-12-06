@@ -1,0 +1,35 @@
+﻿@using Forum.MVCUI.Models.AppUser
+@model List<ListAppUserModel>
+@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>Index</title>
+	<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="container mt-4">
+	<table class="table table-bordered">
+		<tr>
+			<th>Kullanıcı Adı</th>
+			<th>Mail </th>
+		</tr>
+		  
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>@item.UserName</td>
+				<td>@item.Email</td>
+			</tr>
+		}
+
+	</table>
+	<a href="/AppUser/CreateUserScreen" class="btn btn-primary">Ekleme Sayfası</a>
+	</div>
+</body>
+</html>

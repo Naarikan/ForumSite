@@ -1,0 +1,36 @@
+﻿@model List<Forum.Entities.Models.Answer>
+
+@{
+    ViewData["Title"] = "My Answers";
+    Layout = "~/Views/Shared/_ProfileLayout.cshtml";
+}
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-iKbRrsf6p7mxSnzD0KYOuvAvo9aOjcD5xA+VJEMHe0fPzQe3LQbSNzImXK83OinV" crossorigin="anonymous">
+</head>
+
+<h2>My Answers</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Content</th>
+            <th>Created Date</th>
+            <th>Güncelle</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var answer in Model)
+        {
+            <tr>
+                <td>@answer.ID</td>
+                <td>@answer.Content.Take(10)</td>
+                <td>@answer.CreatedDate</td>
+                <td><a href="#" class="btn btn-warning"><i class="fa fa-edit"></i>Güncelle</a></td>
+                <td><a href="#" class="btn btn-danger">Sil</a></td>
+
+            </tr>
+        }
+    </tbody>
+</table>

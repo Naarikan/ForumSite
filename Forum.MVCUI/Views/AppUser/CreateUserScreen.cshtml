@@ -1,0 +1,56 @@
+﻿@model Forum.MVCUI.Models.AppUser.CreateUserModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CreateUserScreen</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <h2>Kullanıcı Kaydı</h2>
+        <form asp-action="CreateUserScreen" method="post">
+            <div class="form-group">
+                <label for="UserName">Kullanıcı Adı</label>
+                <input type="text" class="form-control" id="UserName" name="UserName" value="@Model.UserName" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label for="Email">Email</label>
+                <input type="email" class="form-control" id="Email" name="Email" value="@Model.Email" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <br />
+          @*   <div class="form-group">
+                <label for="PhoneNumber">Telefon Numarası</label>
+                <input type="text" class="form-control" id="PhoneNumber" name="PhoneNumber" value="@Model.PhoneNumber" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div> *@
+            <div class="form-group">
+                <label for="Password">Şifre</label>
+                <input type="password" class="form-control" id="Password" name="Password" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label for="ConfirmPassword">Şifreyi Onayla</label>
+                <input type="password" class="form-control" id="ConfirmPassword" name="ConfirmPassword" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary">Kaydet</button>
+        </form>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>

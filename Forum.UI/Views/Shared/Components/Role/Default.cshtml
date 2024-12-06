@@ -1,0 +1,8 @@
+﻿@model string
+
+
+@if (Model == "SAdmin" || Model == "NAdmin")
+{
+    <a href="/Admin/Users" class="w3-bar-item w3-button">Kullanıcılar</a>
+    <a href="/Admin/BannedUsers" class="w3-bar-item w3-button">Banlı Kullanıcılar</a>
+}

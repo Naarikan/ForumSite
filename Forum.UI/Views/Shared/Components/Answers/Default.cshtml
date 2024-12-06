@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Forum.Entities.Models.Answer>
+
+@foreach (var answer in Model)
+{
+    <div class="container darker">
+        <h3>@answer.AppUser.UserName</h3>
+        <img src="/w3images/avatar_g2.jpg" alt="Avatar" class="right" style="width:100%;">
+        <p>@answer.Content</p>
+        <span class="time-left">@answer.CreatedDate</span>
+        @await Component.InvokeAsync("BanQ", new { appUserId = answer.AppUserId })
+        <a href="/Forum/Reply/@answer.QuestionId" class="reply-button">Cevapla</a>
+    </div>
+}

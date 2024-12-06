@@ -1,0 +1,9 @@
+﻿
+@model string
+
+
+@if (Model == "SAdmin" || Model == "NAdmin")
+{
+	<a href="/Admin/Banned/@ViewBag.AppUserId" class="ban-button"><i class="fas fa-ban"></i></a>
+
+}

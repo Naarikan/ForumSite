@@ -1,0 +1,31 @@
+﻿@model Forum.Entities.Models.Question
+
+@{
+    ViewData["Title"] = "QuestionAnswers";
+    Layout = "~/Views/Shared/_ForumLayout.cshtml";
+
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="~/css/my.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2>@Model.Title</h2>
+        <h3>Soran:@Model.AppUser.UserName</h3>
+        <img src="/w3images/avatar_g2.jpg" alt="Avatar" class="right" style="width:100%;">
+        <p>@Model.Content</p>
+        <span class="time-left">@Model.CreatedDate</span>
+        <a href="/Forum/Reply/@Model.ID" class="reply-button">Cevapla</a>
+        @await Component.InvokeAsync("BanQ", new { appUserId = Model.AppUserId })
+    </div>
+
+    @await Component.InvokeAsync("Answers", new { questionId = Model.ID })
+
+</body>
+</html>

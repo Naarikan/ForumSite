@@ -1,0 +1,72 @@
+﻿@model Forum.Entities.Models.AppUser
+@{
+    ViewData["Title"] = "MyProfile";
+    Layout = "~/Views/Shared/_ProfileLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+        }
+
+        .card {
+            margin-bottom: 20px;
+        }
+
+        .card-header {
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+
+        .card-body label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                Kullanıcı Bilgileri
+            </div>
+            <div class="card-body">
+                <div class="user-detail">
+                    <label for="username">Kullanıcı Adı:</label>
+                    <p id="username">@Model.UserName</p>
+                </div>
+                <div class="user-detail">
+                    <label for="email">E-posta:</label>
+                    <p id="email">@Model.Email</p>
+                </div>
+                <div class="user-detail">
+                    <label for="createdDate">Kayıt Tarihi:</label>
+                    <p id="createdDate">@Model.CreatedDate.ToString("dd.MM.yyyy")</p>
+                </div>
+                <!-- Kaç soru sormuş -->
+                <div class="user-detail">
+                    <label for="questionCount">Sorduğum Soru Sayısı:</label>
+                    <p id="questionCount">@Model.Questions.Count()</p>
+                </div>
+                <!-- Kaç cevap vermiş -->
+                <div class="user-detail">
+                    <label for="answerCount">Verdiğim Cevap Sayısı:</label>
+                    <p id="answerCount">@Model.Answers.Count()</p>
+                </div>
+            </div>
+            <div class="card-footer text-center">
+                <a href="/Forum/Home" class="btn btn-primary">Geri Dön</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

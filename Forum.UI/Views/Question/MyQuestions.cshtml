@@ -1,0 +1,37 @@
+﻿@model List<Forum.Entities.Models.Question>
+
+@{
+    ViewData["Title"] = "My Questions";
+    Layout = "~/Views/Shared/_ProfileLayout.cshtml";
+}
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-iKbRrsf6p7mxSnzD0KYOuvAvo9aOjcD5xA+VJEMHe0fPzQe3LQbSNzImXK83OinV" crossorigin="anonymous">
+</head>
+
+<h2>My Questions</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Content</th>
+            <th>Created Date</th>
+            <th>Güncelle</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var question in Model)
+        {
+            <tr>
+                <td><a href="/Forum/QuestionAnswers/@question.ID">@question.Title</a></td>
+                <td>@question.Content</td>
+                <td>@question.CreatedDate</td>
+                <td><a href="#" class="btn btn-warning"><i class="fa fa-edit"></i>Güncelle</a></td>
+                <td><a href="#" class="btn btn-danger">Sil</a></td>
+                
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Question/AskQuestion" class="btn btn-primary">Soru Sor</a>

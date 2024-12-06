@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Forum.UI.Models.User.UserInfoModel>
+
+@{
+    ViewData["Title"] = "BannedUsers";
+    Layout = "~/Views/Shared/_ProfileLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Kullanıcı Listesi</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="w3-container">
+        <h2>Kullanıcı Listesi</h2>
+        <table class="w3-table-all">
+            <thead>
+                <tr>
+                    <th>Kullanıcı Adı</th>
+                    <th>Email</th>
+                    <th>Rol</th>
+                    <th>Rol Değiş</th>
+                    <th>Ban Kaldır</th>
+                    <th>Kullanıcıyı Sil</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in Model)
+                {
+                    <tr>
+                        <td>@user.UserName</td>
+                        <td>@user.Email</td>
+                        <td>@user.Roles</td>
+                        <td><a href="/Admin/ChangeRole?userId=@user.Id" class="btn btn-warning">Rol Değiş</a></td>
+                        <td><a href="/Admin/RemoveBan/@user.Id" class="btn btn-warning">Ban Kaldır</a></td>
+                        <td><a href="/Admin/PermaBanned/@user.Id" class="btn btn-danger">Sil</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+

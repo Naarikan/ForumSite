@@ -1,0 +1,45 @@
+﻿@model Forum.UI.Models.User.LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h2 class="text-center">Kullanıcı Girişi</h2>
+
+                <form asp-action="Login" method="post">
+
+                    <div class="form-group">
+                        <label for="UserName">Kullanıcı Adı</label>
+                        <input type="text" class="form-control" id="UserName" name="UserName" />
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label for="Password">Şifre</label>
+                        <input type="password" class="form-control" id="Password" name="Password" />
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Giriş Yap</button>
+                        <a href="/Register/Form" class="btn btn-primary ml-2">Kayıt Ol</a>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

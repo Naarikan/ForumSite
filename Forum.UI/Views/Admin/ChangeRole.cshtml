@@ -1,0 +1,27 @@
+﻿@model Forum.UI.Models.User.ChangeRoleModel
+@{
+    ViewData["Title"] = "Change Role";
+    Layout = "~/Views/Shared/_ProfileLayout.cshtml";
+
+}
+<head>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<h2>Change Role for @Model.UserName</h2>
+
+<form asp-action="ChangeRole">
+    <div class="form-group">
+        <label asp-for="CurrentRole">Current Role</label>
+        <input asp-for="CurrentRole" class="form-control" readonly />
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for="SelectedRole">New Role</label>
+        <select asp-for="SelectedRole" class="form-control" asp-items="ViewBag.Roles"></select>
+    </div>
+    <input type="hidden" asp-for="UserId" />
+    <br />
+    <br />
+    <button type="submit" class="btn btn-primary">Update Role</button>
+</form>

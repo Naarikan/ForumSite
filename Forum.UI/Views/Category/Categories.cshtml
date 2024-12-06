@@ -1,0 +1,54 @@
+﻿@model List<Forum.Entities.Models.Category>
+
+@{
+    ViewData["Title"] = "Categories";
+    Layout = "~/Views/Shared/_ProfileLayout.cshtml";
+}
+
+<h2>Categories</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Desc
+            </th>
+            <th>
+                Created Date
+            </th>
+            <th>Sil</th
+           
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.ID
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                </td>
+                
+                <td><a href="/Category/DeleteCategory" class="btn btn-danger">Sil</a></td>
+
+                <td><a href="/Category/UpdateCategory" class="btn btn-warning">Güncelle</a></td>
+            </tr>
+        }
+       
+    </tbody>
+</table>
+<a href="/Category/AddCategory" class="btn btn-success">Ekle</a>

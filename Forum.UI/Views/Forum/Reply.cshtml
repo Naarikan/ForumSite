@@ -1,0 +1,25 @@
+﻿@model Forum.Entities.Models.Answer
+
+@{
+	ViewData["Title"] = "Reply";
+	Layout = "~/Views/Shared/_ForumLayout.cshtml";
+}
+<head>
+	<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+
+
+<form asp-action="Reply" method="post">
+    <div class="container">
+        <h3>Soruya Yanıt Ver</h3>
+        <div class="form-group">
+            <label for="Content">Yanıtınız:</label>
+            <textarea id="Content" name="Content" class="form-control"></textarea>
+        </div>
+        <div class="form-group">
+            <br />
+            <button type="submit" class="btn btn-primary">Gönder</button>
+        </div>
+    </div>
+</form>
